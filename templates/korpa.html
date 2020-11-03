@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        ul li{
+        display: inline-block;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+          <a class="nav-link" href="/">Pocetna</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/korpa">Korpa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/o nama">O nama</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/kontakt">Kontakt</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profil">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logovanja">Logovanja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registracija">Registracija</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/administracija">Administracija</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+{{odg}}
+
+<div class="container">
+    <div class="row">
+{% for i in proizvodi %}
+
+        <div class="col-12 col-md-4">
+
+            <div class="card text-center">
+              <div class="card-header">
+                <a href="/jedanProizvod/{{i[0]}}">{{i[1]}}</a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{i[2]}}</h5>
+                <p class="card-text">{{i[3]}}</p>
+                <a href="http://www.{{i[4]}}" class="btn btn-primary">Proizvodjac</a>
+                  <form action="/dodajkorpa" method="post">
+                    <input type="hidden" value="{{i[0]}}" name="id">
+
+                </form>
+              </div>
+              <div class="card-footer text-muted">
+                <form action="/izbaci" method="post">
+                    <input type="hidden" value="{{i[0]}}" name="id">
+                    <input type="submit" value="Izbaci" class="btn btn-danger">
+                </form>
+              </div>
+            </div>
+
+
+<p></p>
+<p></p>
+
+
+
+<hr>
+        </div>
+{% endfor %}
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</html>
